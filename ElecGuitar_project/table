@@ -1,0 +1,74 @@
+회원정보
+
+테이블 생성 account_info_tbl(ac_num number(10) 제약 조건 ac_num_pk 기본 키,
+이름 varchar2(30), ac_tel varchar2(30), ac_addr varchar2(30));
+
+insert into account_info_tbl values(1,'김예현','1012','전라');
+
+insert into account_info_tbl values(2,'박다훈','1013','경기');
+
+account_info_tbl에 삽입 values(3,'김은현','1014','서울');
+
+insert into account_info_tbl values(4,'신준영','1017','인천');
+
+insert into account_info_tbl values(5,'박성호','1018','부산');
+
+insert into account_info_tbl values(6,'남상우','1019','충청');
+
+
+판매처 정보
+
+테이블 sell_info_tbl(mad_name varchar2(30), 모델 varchar2(30) 제약 조건 see_info_tbl_pk 기본 키 생성,
+sell_name varchar2(30), sell_count varchar2(30), sell_addr varchar2(30), sell_numb varchar2(30));
+
+
+insert into sell_info_tbl values('FENDEX','펜더1','Neymar','MEXICO','유카탄','1211');
+
+insert into sell_info_tbl values('FENDUX','펜더2','David','USA','뉴욕','1222');
+
+insert into sell_info_tbl values('FENPAX','펜더3','히토시','JAPAN','도쿄','1233');
+
+insert into sell_info_tbl values('GUSEA','깁슨','왓슨','USA','워싱턴','1244');
+
+insert into sell_info_tbl values('TESULA','테일러','James','USA','네바다','1255');
+
+insert into sell_info_tbl values('REZASU','레독스','Hamada','JAPAN','후쿠오카','1266');
+
+일렉기타리스트
+
+테이블 ele_list_tbl(ele_num varchar2(20) 제약 조건 ele_list_tbl_pk 기본 키 생성, 모델 varchar2(30) 참조 sell_info_tbl(model),
+픽업 varchar2(30), 넥 varchar2(30), 가격 번호(10));
+
+ele_list_tbl에 삽입 values('A01','펜더1','싱글3','메이플',250);
+
+insert into ele_list_tbl values('A02','펜더2','싱1험2','로즈우드',200);
+
+insert into ele_list_tbl values('A03','펜더3','험버커2','메이플',180);
+
+insert into ele_list_tbl values('A04','깁슨','험버커2','로즈우드',320);
+
+ele_list_tbl에 삽입 values('A05','테일러','험버커2','메이플',600);
+
+insert into ele_list_tbl values('A06','레독스','험버커2','로즈우드',80);
+
+
+구매자
+
+테이블 생성 pur_info_tbl(ac_num number(10) 참조 account_info_tbl(ac_num), ele_num varchar2(20) 참조 ele_list_tbl(ele_num),
+pur_dat 날짜)
+
+pur_info_tbl에 삽입 values(1,'A01',to_date('2022-10-11','YYYY-MM-DD'));
+
+pur_info_tbl에 삽입 values(1,'A02',to_date('2022-10-11','YYYY-MM-DD'));
+
+pur_info_tbl에 삽입 values(3,'A03',to_date('2022-09-09','YYYY-MM-DD'));
+
+pur_info_tbl에 삽입 values(5,'A02',to_date('2022-08-12','YYYY-MM-DD'));
+
+pur_info_tbl에 삽입 values(2,'A04',to_date('2021-02-21','YYYY-MM-DD'));
+
+pur_info_tbl에 삽입 values(6,'A04',to_date('2022-11-09','YYYY-MM-DD'));
+
+pur_info_tbl에 삽입 values(5,'A05',to_date('2022-05-05','YYYY-MM-DD'));
+
+pur_info_tbl values(4,'A06',to_date('2022-02-14','YYYY-MM-DD'))
